@@ -9,13 +9,13 @@ module XssTerminate
     def xss_terminate(options = {})
       before_validation :sanitize_fields
 
-      write_inheritable_attribute(:xss_terminate_options, {
+      class_attribute :xss_terminate_options
+
+      self.xss_terminate_options = {
         :except => (options[:except] || []),
         :html5lib_sanitize => (options[:html5lib_sanitize] || []),
         :sanitize => (options[:sanitize] || [])
-      })
-      
-      class_attribute :xss_terminate_options, :instance_writer => false
+      }
       
       include XssTerminate::InstanceMethods
     end
