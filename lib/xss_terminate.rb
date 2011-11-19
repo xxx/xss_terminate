@@ -15,7 +15,7 @@ module XssTerminate
         :sanitize => (options[:sanitize] || [])
       })
       
-      class_inheritable_reader :xss_terminate_options
+      class_attribute :xss_terminate_options
       
       include XssTerminate::InstanceMethods
     end
