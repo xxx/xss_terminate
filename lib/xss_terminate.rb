@@ -15,7 +15,7 @@ module XssTerminate
         :sanitize => (options[:sanitize] || [])
       })
       
-      class_attribute :xss_terminate_options
+      class_attribute :xss_terminate_options, :instance_writer => false
       
       include XssTerminate::InstanceMethods
     end
